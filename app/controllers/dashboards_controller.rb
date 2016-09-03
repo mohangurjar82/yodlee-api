@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def dashboard_1
+    # render :layout => "empty"
   end
 
   def dashboard_2
