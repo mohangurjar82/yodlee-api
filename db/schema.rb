@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904201657) do
+ActiveRecord::Schema.define(version: 20160905034318) do
 
   create_table "banks", force: :cascade do |t|
     t.integer  "content_service_id"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20160904201657) do
     t.text     "response"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "yodlee_username"
+    t.string   "yodlee_password"
   end
 
 end
