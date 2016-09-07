@@ -57,13 +57,13 @@ module Yodlee
     end
 
     def log_query opts
-    Log.create!(
-    :method        => opts[:method],
-    :endpoint      => opts[:endpoint],
-    :params        => opts[:params].to_json,
-    :response      => opts[:response].to_json,
-    :response_code => opts[:code]
-    )
+      Log.create!(
+        :method        => opts[:method],
+        :endpoint      => opts[:endpoint],
+        :params        => opts[:params].to_json,
+        :response      => opts[:response].to_json,
+        :response_code => opts[:code]
+      )
     end
 
   end

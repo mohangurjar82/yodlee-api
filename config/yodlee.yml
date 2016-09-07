@@ -2,7 +2,7 @@ development:
   base_url: https://rest.developer.yodlee.com/services/srest/restserver/v1.0/
   username: sbCobryanam26
   password: 73d83af9-681a-4ab1-b29a-7ed37ad2468b
-  register_users: false
+  register_users: true
 
 test:
   base_url: https://rest.developer.yodlee.com/services/srest/restserver/v1.0/
