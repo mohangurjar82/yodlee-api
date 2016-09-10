@@ -23,6 +23,7 @@ module Yodlee
           :'userProfile.emailAddress' => user.yodlee_username
         }
       })
+      byebug
       @token = response.userContext.conversationCredentials.sessionToken
     end
 
