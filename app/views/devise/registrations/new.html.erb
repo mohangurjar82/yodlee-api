@@ -1,0 +1,37 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+      <h1 class="logo-name">SD+</h1>
+    </div>
+    <h3>Welcome to SD+</h3>
+    <p>
+        The first step to smart debt management. Getting you closer to you business goals.
+    </p>
+    <p>Login in. To see it in action.</p>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),:html=>{:class=>"form-stacked form-signup"}) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.text_field :first_name, autofocus: true, class: "form-control",  placeholder: "First Name" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :last_name, autofocus: true, class: "form-control",  placeholder: "Last Name" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :business_name, autofocus: true, class: "form-control",  placeholder: "Business Name" %>
+      </div>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, class: "form-control",  placeholder: "Email" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+      </div>
+      <%= f.submit "Sign up" , class: "btn btn-primary block full-width m-b" %>
+      <a href="<%= new_user_password_path %>"><small>Forgot password?</small></a>
+      <a class="btn btn-sm btn-white btn-block" href="<%= new_user_session_path %>">Login</a>
+    <% end %>
+    <p class="m-t"> <small>Powered by SmartDebt+ &copy; 2016</small> </p>
+  </div>
+</div>
