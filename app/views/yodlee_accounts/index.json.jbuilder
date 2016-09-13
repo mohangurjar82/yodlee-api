@@ -1,0 +1,1 @@
+json.array! @yodlee_accounts, partial: 'yodlee_accounts/yodlee_account', as: :yodlee_account

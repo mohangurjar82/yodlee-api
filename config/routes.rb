@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :yodlee_accounts , only: [:new, :edit, :show, :update, :create]
   devise_for :users
   get 'users/new'
 

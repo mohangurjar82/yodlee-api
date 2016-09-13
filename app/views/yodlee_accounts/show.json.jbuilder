@@ -1,0 +1,1 @@
+json.partial! "yodlee_accounts/yodlee_account", yodlee_account: @yodlee_account

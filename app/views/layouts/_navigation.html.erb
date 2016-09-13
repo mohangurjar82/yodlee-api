@@ -39,6 +39,12 @@
                     <li class="<%= is_active_action('dashboard_5') %>"><%= link_to "Dashboard v.5", dashboards_dashboard_5_path %></li>
                 </ul>
             </li>
+            <li class="<%= is_active_controller('gridoptions') %>">
+                <% path = current_user.yodlee_account.present? ? edit_yodlee_account_path(current_user.yodlee_account) : new_yodlee_account_path %>
+                <%= link_to gridoptions_index_path do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Yodle Account</span>
+                <% end %>
+            </li>
             <li class="<%= is_active_controller('layoutsoptions') %>">
                 <%= link_to layoutsoptions_index_path do %>
                 <i class="fa fa-diamond"></i> <span class="nav-label" data-i18n="nav.layouts">Layouts</span> <span class="label label-primary pull-right">NEW</span>

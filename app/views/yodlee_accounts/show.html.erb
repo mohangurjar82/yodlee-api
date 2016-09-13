@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @yodlee_account.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @yodlee_account.password %>
+</p>
+
+<%= link_to 'Edit', edit_yodlee_account_path(@yodlee_account) %> |
+<%= link_to 'Back', yodlee_accounts_path %>
