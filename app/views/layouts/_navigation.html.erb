@@ -41,7 +41,7 @@
             </li>
             <li class="<%= is_active_controller('gridoptions') %>">
                 <% path = current_user.yodlee_account.present? ? edit_yodlee_account_path(current_user.yodlee_account) : new_yodlee_account_path %>
-                <%= link_to gridoptions_index_path do %>
+                <%= link_to path do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label" data-i18n="nav.gridoptions">Yodle Account</span>
                 <% end %>
             </li>
