@@ -7,6 +7,8 @@ class User < ApplicationRecord
   before_destroy :remove_from_yodlee
   validates :first_name, :last_name, :business_name, presence: true
 
+  has_one :yodlee_account
+
   def set_yodlee_credentials
     if Yodlee::Config.register_users
       self.yodlee_username = "user#{id}@your-app-name.com"
