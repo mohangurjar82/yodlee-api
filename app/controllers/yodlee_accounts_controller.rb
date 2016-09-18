@@ -24,7 +24,7 @@ class YodleeAccountsController < ApplicationController
     end
   end
 
-  def show_transactions
+  def show
     begin 
       yourCobrandLogin = Yodlee::Config.username
       yourCobrandPassword = Yodlee::Config.password
@@ -40,20 +40,23 @@ class YodleeAccountsController < ApplicationController
       yodTxns = YodleeNow::TransactionDetails.new
       yodTxns.search_request(cobSession.sessionToken,yodUser.sessionToken)
       @result = yodTxns.response
+      @result = yodTxns.basics
     rescue
       @result = []
     end
-    # or 
-    # @result = yodTxns.basics
   end
 
   def update
-    respond_to do |format|
-      if @yodlee_account.update(yodlee_account_params)
-        format.html { redirect_to @yodlee_account, notice: 'Yodlee account was successfully updated.' }
-      else
-        format.html { render :edit }
+    if yodlee_login?
+      respond_to do |format|
+        if @yodlee_account.update(yodlee_account_params)
+          format.html { redirect_to @yodlee_account, notice: 'Yodlee account was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
+    else
+      redirect_to edit_yodlee_account_path(@yodlee_account), notice: 'Invalid username or password'
     end
   end
 

@@ -10,5 +10,38 @@
   <%= @yodlee_account.password %>
 </p>
 
+<div class="container">
+  <h2>Your Transaction</h2>
+  <p>Your last 12 month transation:-</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Account Name</th>
+        <th>Account Id</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @result.present? %>
+        <% @result[:transactions].each do |result| %>
+          <tr>
+            <td><%= result[:accountName] %></td>
+            <td><%= result[:accountId] %></td>
+            <td><%= result[:description] %></td>
+            <td><%= result[:amount] %></td>
+            <td><%= result[:currency] %></td>
+            <td><%= result[:category] %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <h3>No transactions fount !!</h3>
+      <% end %>
+    </tbody>
+	</table>
+</div>
+
 <%= link_to 'Edit', edit_yodlee_account_path(@yodlee_account) %> |
-<%= link_to 'Back', yodlee_accounts_path %>
+<%= link_to 'Back', root_path %>
