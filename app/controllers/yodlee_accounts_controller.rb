@@ -24,6 +24,29 @@ class YodleeAccountsController < ApplicationController
     end
   end
 
+  def show_transactions
+    begin 
+      yourCobrandLogin = Yodlee::Config.username
+      yourCobrandPassword = Yodlee::Config.password
+      yourTestUserLogin = current_user.yodlee_account.username
+      yourTestUserPassword = current_user.yodlee_account.password
+
+      cobSession = YodleeNow::CobrandSession.new
+      cobSession.login(yourCobrandLogin,yourCobrandPassword)
+
+      yodUser = YodleeNow::User.new
+      yodUser.login(yourTestUserLogin,yourTestUserPassword,cobSession.sessionToken)
+      #User's Transactions
+      yodTxns = YodleeNow::TransactionDetails.new
+      yodTxns.search_request(cobSession.sessionToken,yodUser.sessionToken)
+      @result = yodTxns.response
+    rescue
+      @result = []
+    end
+    # or 
+    # @result = yodTxns.basics
+  end
+
   def update
     respond_to do |format|
       if @yodlee_account.update(yodlee_account_params)
@@ -46,7 +69,7 @@ class YodleeAccountsController < ApplicationController
     def yodlee_login?
       your_cobrand_login = Yodlee::Config.username 
       your_cobrand_password = Yodlee::Config.password
-      account_id = "10010352"
+      # account_id = "10010352"
       cobSession = YodleeNow::CobrandSession.new
       cobSession.login(your_cobrand_login,your_cobrand_password)
       yodUser = YodleeNow::User.new
